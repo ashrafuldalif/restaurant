@@ -202,24 +202,12 @@ imageSlider.addEventListener("mouseleave",e=>{
 })
 function playOrStopAutoImage(){
   if( check){
-    console.log(check);
     automationOfGellary();
   }
   else{
-    console.log(check);
     clearInterval(autoImgPlay);
   }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 nextImage.addEventListener("click",()=>{
@@ -268,7 +256,6 @@ function show() {
   setTimeout(() => {
     nextImage.classList.remove("hide2");
     prevImage.classList.remove("hide2");
-    console.log("hello")
   }, 3000);
 }
 
@@ -304,13 +291,13 @@ for (let i=0;i<2;i++){
     let theBtn=e.target.classList[0];
     if(theBtn=='btn1'){
       barsRapper.children[imgSliderIndex].classList.remove('active-bar');
-      imgSliderIndex = imgSliderIndex == 0 ? 4 : imgSliderIndex - 1;
+      imgSliderIndex = imgSliderIndex == 0 ? bars-1 : imgSliderIndex - 1;
       root.style.setProperty("--slider-index",imgSliderIndex)
       barsRapper.children[imgSliderIndex].classList.add('active-bar');
     }
     else if(theBtn=="btn2"){
       barsRapper.children[imgSliderIndex].classList.remove('active-bar');
-      imgSliderIndex = imgSliderIndex == 4 ? 0 : imgSliderIndex + 1;
+      imgSliderIndex = imgSliderIndex == bars-1 ? 0 : imgSliderIndex + 1;
       root.style.setProperty("--slider-index",imgSliderIndex);
       barsRapper.children[imgSliderIndex].classList.add("active-bar");
     }
@@ -324,7 +311,6 @@ calculatePrograssBar();
 function calculatePrograssBar(progressBar){
 barsRapper.innerHTML ="";
 const itemCount=allImageSlider.children.length;
-console.log(itemCount);
 const itemPerScreen = parseInt(
   getComputedStyle(allImageSlider).getPropertyValue("--img-per-screen"));
       let imgSliderIndex = parseInt(
@@ -332,7 +318,6 @@ const itemPerScreen = parseInt(
       );
 const countBar=Math.ceil(itemCount/itemPerScreen);
 bars =countBar;
-console.log(countBar);
 for (let i=0;i<countBar;i++){
   const barItem=document.createElement("div");
   barItem.classList.add("progress");
@@ -345,6 +330,5 @@ for (let i=0;i<countBar;i++){
   }
   barsRapper.appendChild(barItem);
 }
-console.log(barsRapper)
 }
 calculatePrograssBar()
