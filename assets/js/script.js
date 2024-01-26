@@ -172,8 +172,9 @@ window.addEventListener("mousemove", function (event) {
   
 });
 
-// gellary
-
+/**
+ * gallery______||
+ */
 const imgdivs = document.querySelectorAll(".gelaryImags");
 const nextImage=document.querySelector("[data-gallery-next-btn]");
 const prevImage = document.querySelector("[data-gallery-prev-btn]");
@@ -182,30 +183,31 @@ const hiddenOne = document.querySelector(".hiddenOne");
 const imageSlider = document.querySelector(".image-slider");
 let check,autoImgPlay;
 function automationOfGellary() {
-  autoImgPlay=setInterval(nextimageshow, 4500);
-check=true;
+  autoImgPlay=setInterval(nextimageshow, 4300);
+check=false;
 }
 automationOfGellary();
 
 imageSlider.addEventListener("mouseenter",e=>{
   nextImage.classList.remove("hide");
   prevImage.classList.remove("hide");
+  check=false;
 playOrStopAutoImage();
 })
 imageSlider.addEventListener("mouseleave",e=>{
   nextImage.classList.add("hide");
   prevImage.classList.add("hide");
+  check=true;
   playOrStopAutoImage();
 })
 function playOrStopAutoImage(){
-  if(!autoImgPlay && !check){
+  if( check){
     console.log(check);
     automationOfGellary();
   }
   else{
     console.log(check);
     clearInterval(autoImgPlay);
-    check=false;
   }
 }
 
@@ -221,9 +223,10 @@ function playOrStopAutoImage(){
 
 
 nextImage.addEventListener("click",()=>{
-  nextImage.classList.add("hide");
-  prevImage.classList.add("hide");
+  nextImage.classList.add("hide2");
+  prevImage.classList.add("hide2");
   nextimageshow();
+  show();
 })
 function nextimageshow(){
   let temp = imgdivs[7].classList[0];  
@@ -232,10 +235,7 @@ function nextimageshow(){
   setTimeout(() => {
     frontOne.classList.remove('nextPhoto');
     frontOne.classList.remove(temp);
-    nextImage.classList.remove("hide");
-    prevImage.classList.remove("hide");
   }, 1800);
-  show();
   for(let i=7;i>=0;i--){
     if(i==0){
       imgdivs[i].classList.replace(imgdivs[i].classList[0],temp);
@@ -249,12 +249,12 @@ prevImage.addEventListener("click",function(){
   let temp = imgdivs[0].classList[0];  
   hiddenOne.classList.remove("nextPhoto");
 hiddenOne.classList.add(temp);
-nextImage.classList.add("hide");
-prevImage.classList.add("hide");
+nextImage.classList.add("hide2");
+prevImage.classList.add("hide2");
 setTimeout(() => {
   hiddenOne.classList.add("nextPhoto");
   hiddenOne.classList.remove(temp);
-}, 1800);
+}, 2000);
 show();
 for(let i=0;i<=7;i++){
   if(i==7){
@@ -266,7 +266,85 @@ for(let i=0;i<=7;i++){
 });
 function show() {
   setTimeout(() => {
-    nextImage.classList.remove("hide");
-    prevImage.classList.remove("hide");
-  }, 2200);
+    nextImage.classList.remove("hide2");
+    prevImage.classList.remove("hide2");
+    console.log("hello")
+  }, 3000);
+}
+
+const allImgBtnsRapper = document.querySelectorAll(".btn-wrapper");
+const imageContainer = document.querySelector(".image-container");
+const allImageSlider = document.querySelector(".image-scroller");
+const barsRapper = document.querySelector(".bars-wrapper");
+const root = document.documentElement;
+const indexValue=getComputedStyle(root);
+let bars;
+
+
+imageContainer.addEventListener("mouseover", () => {
+  allImgBtnsRapper.forEach((e) => {
+    e.classList.add("showTheBtns");
+    e.childNodes[1].classList.add("makeBig");
+  });
+});
+
+imageContainer.addEventListener("mouseout", () => {
+  allImgBtnsRapper.forEach((e) => {
+    e.classList.remove("showTheBtns");
+    e.childNodes[1].classList.remove("makeBig");
+  });
+});
+
+
+
+for (let i=0;i<2;i++){
+  allImgBtnsRapper[i].addEventListener("click",e=>{
+
+    let imgSliderIndex = parseInt(indexValue.getPropertyValue("--slider-index"));
+    let theBtn=e.target.classList[0];
+    if(theBtn=='btn1'){
+      barsRapper.children[imgSliderIndex].classList.remove('active-bar');
+      imgSliderIndex = imgSliderIndex == 0 ? 4 : imgSliderIndex - 1;
+      root.style.setProperty("--slider-index",imgSliderIndex)
+      barsRapper.children[imgSliderIndex].classList.add('active-bar');
+    }
+    else if(theBtn=="btn2"){
+      barsRapper.children[imgSliderIndex].classList.remove('active-bar');
+      imgSliderIndex = imgSliderIndex == 4 ? 0 : imgSliderIndex + 1;
+      root.style.setProperty("--slider-index",imgSliderIndex);
+      barsRapper.children[imgSliderIndex].classList.add("active-bar");
+    }
+  })
+}
+
+
+window.addEventListener("resize",e=>{
+calculatePrograssBar();
+})
+function calculatePrograssBar(progressBar){
+barsRapper.innerHTML ="";
+const itemCount=allImageSlider.children.length;
+console.log(itemCount);
+const itemPerScreen = parseInt(
+  getComputedStyle(allImageSlider).getPropertyValue("--img-per-screen"));
+      let imgSliderIndex = parseInt(
+        indexValue.getPropertyValue("--slider-index")
+      );
+const countBar=Math.ceil(itemCount/itemPerScreen);
+bars =countBar;
+console.log(countBar);
+for (let i=0;i<countBar;i++){
+  const barItem=document.createElement("div");
+  barItem.classList.add("progress");
+  barItem.onclick=function (){
+    root.style.setProperty("--slider-index", i);
+    calculatePrograssBar()
   }
+  if(i==imgSliderIndex){
+    barItem.classList.add("active-bar");
+  }
+  barsRapper.appendChild(barItem);
+}
+console.log(barsRapper)
+}
+calculatePrograssBar()
