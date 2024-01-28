@@ -949,68 +949,71 @@ body.nav-active { overflow: hidden; }
 \*-----------------------------------*/
 
 .image-slider{
-  height: 210px;
   margin-top: 30px;
+  height: clamp(200px ,80vh + 15rem ,120rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
   align-items: center;
+  background-color: rgb(255, 0, 0);
+}
+.sliding-img-wrapper{
+  display: grid ;
+  align-items: center;
+  justify-content: center;
+  place-items: center;
+  grid-template-columns: clamp(300px,55vw + 20rem,150rem) ;
+  grid-template-areas: 
+  'main'
+  ;
+  width: clamp(200px ,80vw, 150rem);
+  height: clamp(200px ,80vh + 15rem ,75rem);
+  border: 2px solid white;
 }
 .gelaryImags,.frontOne,.hiddenOne{
-  height: 160px;
-  width: 290px;
+  height: 400px;
+  width: clamp(250px,60vw + 15rem,400rem);
+  height: clamp(150px ,55vh + 15rem ,100rem);
   border-radius: 20px;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   flex-wrap: wrap;
   flex-shrink: 0;
-  position: absolute;
-  right: 15vw;
-  top: 42vh;
+  position: relative;
   filter: blur(3px);
   transition: all 2s ease-in-out ;
+  grid-area: main;
+  z-index: 1;
 }
 .frontOne{
   transition: all 3s ease-in-out ;
 }
 .hiddenOne{
+  
   transition: all 0.8s ease-in-out ;
   
 }
 .holder0{
-  right:39vw ;
-  top: 28vh;
-  transform: scale(0.82);
+  transform: scale(0.82)  translate(-30%,-30%);
 }
 .holder1{
-  right:37vw ;
-  top: 30vh;
-  transform: scale(0.86);
+  transform: scale(0.86)  translate(-26%,-26%);
 }
 .holder2{
-  right:34vw ;
-  top: 32vh;
-  transform: scale(0.9);
+  transform: scale(0.9)  translate(-20%,-20%);
 }
 .holder3{
-  right:31vw ;
-  top: 34vh;
-  transform: scale(0.92);
+  transform: scale(0.92)  translate(-16%,-16%);
 }
 .holder4{
-  right:27vw ;
-  top: 36vh;
-  transform: scale(0.94);
+  transform: scale(0.94)  translate(-12%,-12%);
 }
 .holder5{
-  right:23vw ;
-  top: 38vh;
-  transform: scale(0.96);
+  transform: scale(0.96) translate(-8%,-8%);
 }
 .holder6{
-  right:19vw ;
-  top: 40vh;
-  transform: scale(0.98);
+  transform: scale(0.98) translate(-4%,-4%);
 }
 .holder7{
   filter: blur(0);
@@ -1036,9 +1039,9 @@ body.nav-active { overflow: hidden; }
   visibility: hidden;
   position: inherit;
 }
-.gelaryImags,.frontOne,.hiddenOne{
+/* .gelaryImags,.frontOne,.hiddenOne{
   transform: translateX(45px);
-}
+} */
 .image-slider .nextPhoto{
   
   transition: var(--transition-4); 
@@ -1161,7 +1164,8 @@ body.nav-active { overflow: hidden; }
   justify-content: center;
   width: max-content;
   flex-wrap: wrap;
-  margin: 10px 10px;
+  margin: 10px 0;
+  padding: 20px;
   width: 100%;
   height: 50px;
 }
@@ -1680,10 +1684,10 @@ textarea.input-field {
   }
   /* gallery */
 
-  .gelaryImags,.frontOne,.hiddenOne{
+  /* .gelaryImags,.frontOne,.hiddenOne{
     transform:translate(50px,30px)
-  }
-}
+  }*/
+} 
 @media (min-width: 575px) {
 
   /**
@@ -1794,13 +1798,11 @@ textarea.input-field {
   
   /* gallery */
   
-  .gelaryImags,.frontOne,.hiddenOne{
+  /* .gelaryImags,.frontOne,.hiddenOne{
     height: 210px;
     width: 380px;
-  }
-  .image-slider{
-    height: 260px;
-  }
+  } */
+
   .progress{
   flex: 0 0 3rem;
   height: 5px;
@@ -1966,7 +1968,7 @@ textarea.input-field {
 
   /* gallery */
 
-  .gelaryImags,.frontOne,.hiddenOne{
+  /* .gelaryImags,.frontOne,.hiddenOne{
     height: 250px;
     width: 430px;
   }
@@ -1975,7 +1977,7 @@ textarea.input-field {
   }
   .image-slider .slider-btn{
 top: 20%;
-  }
+  } */
   /**
    * RESERVATION
    */
@@ -2070,7 +2072,7 @@ top: 20%;
 
   /* gallery */
 
-  .gelaryImags,.frontOne,.hiddenOne{
+  /* .gelaryImags,.frontOne,.hiddenOne{
     height: 300px;
     width: 540px;
     transform: translate(30px,30px);
@@ -2080,7 +2082,7 @@ top: 20%;
   }
   .image-slider .slider-btn{
 top: 20%;
-  }
+  } */
 
   /**
    * ABOUT
@@ -2306,7 +2308,7 @@ top: 20%;
 
   /* gallery */
 
-  .gelaryImags,.frontOne,.hiddenOne{
+  /* .gelaryImags,.frontOne,.hiddenOne{
     height: 500px;
     width: 840px;
     transform: translate(120px,30px);
@@ -2316,7 +2318,7 @@ top: 20%;
   }
   .image-slider .slider-btn{
 top: 20%;
-  }
+  } */
 
 
   /**
