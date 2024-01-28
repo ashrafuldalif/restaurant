@@ -1028,17 +1028,6 @@ body.nav-active { overflow: hidden; }
 .img5{background-image:url("../images/temp6.jpg") }
 .img6{background-image:url("../images/temp7.jpg") }
 .img7{background-image:url("../images/temp8.jpg") }
-.hide{
-  display:none ;
-  z-index: -100;
-  visibility: hidden;
-}
-.hide2{
-  display: none;
-  z-index: -100;
-  visibility: hidden;
-  position: inherit;
-}
 /* .gelaryImags,.frontOne,.hiddenOne{
   transform: translateX(45px);
 } */
@@ -1172,7 +1161,7 @@ body.nav-active { overflow: hidden; }
 .progress{
   /* flex: 0 0 3rem; */
   flex: 0 0 8px;
-
+  
   border-radius: 50%;
   height: 8px;
   margin: 4px;
@@ -1183,11 +1172,35 @@ body.nav-active { overflow: hidden; }
   background-color: var(--gold-crayola);
 }
 
+.fullscreen{
+  
+  position: absolute;
+  height: 110vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  top: 90vh;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.899);
+  z-index: 100;
+}
 
 
 
 
-
+.hide{
+  display:none ;
+  z-index: -100;
+  visibility: hidden;
+}
+.hide2{
+  display: none;
+  z-index: -100;
+  visibility: hidden;
+}
 
 
 

@@ -263,6 +263,9 @@ const allImgBtnsRapper = document.querySelectorAll(".btn-wrapper");
 const imageContainer = document.querySelector(".image-container");
 const allImageSlider = document.querySelector(".image-scroller");
 const barsRapper = document.querySelector(".bars-wrapper");
+const fullScreenImages= document.querySelectorAll(".images");
+const fullScreen= document.querySelector("#fullImage");
+console.log(fullScreen)
 const root = document.documentElement;
 const indexValue=getComputedStyle(root);
 let bars;
@@ -332,3 +335,17 @@ for (let i=0;i<countBar;i++){
 }
 }
 calculatePrograssBar()
+fullScreenImages.forEach(e=>{
+  let theImage = e.children[0].src;
+  e.addEventListener("click",()=>{
+    console.log(e)
+    console.log(fullScreen.children[0]);
+    fullScreen.children[0].setAttribute("src",theImage);
+    fullScreen.classList.remove("hide");
+  })
+})
+fullScreen.addEventListener("click", function (event) {
+  if (event.target === fullScreen) {
+    fullScreen.classList.add("hide");
+  }
+});
