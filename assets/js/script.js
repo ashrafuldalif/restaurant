@@ -349,3 +349,24 @@ fullScreen.addEventListener("click", function (event) {
     fullScreen.classList.add("hide");
   }
 });
+
+let touchStart=0 ;
+let touchEnd=0 ;
+
+function checkDirection() {
+  if(touchStart<touchEnd){
+    allImgBtnsRapper[0].click();
+  }
+  if(touchStart>touchEnd){
+    allImgBtnsRapper[1].click();
+  }
+}
+
+allImageSlider.addEventListener('touchstart',e=>{
+  touchStart=e.changedTouches[0].screenX;
+})
+
+allImageSlider.addEventListener('touchend',e=>{
+  touchEnd=e.changedTouches[0].screenX;
+  checkDirection()
+})
