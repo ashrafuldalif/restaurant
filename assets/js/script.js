@@ -264,7 +264,6 @@ const allImageSlider = document.querySelector(".image-scroller");
 const barsRapper = document.querySelector(".bars-wrapper");
 const fullScreenImages= document.querySelectorAll(".images");
 const fullScreen= document.querySelector("#fullImage");
-console.log(fullScreen)
 const root = document.documentElement;
 const indexValue=getComputedStyle(root);
 let bars;
@@ -341,13 +340,16 @@ fullScreenImages.forEach(e=>{
     console.log(fullScreen.children[0]);
     fullScreen.children[0].setAttribute("src",theImage);
     fullScreen.classList.remove("hide");
+    fullScreen.scrollIntoView({ behavior: "smooth" });
   })
 })
 fullScreen.addEventListener("click", function (event) {
   if (event.target === fullScreen) {
     fullScreen.classList.add("hide");
+    allImageSlider.scrollIntoView({ behavior: "smooth" });
   }
 });
+swipeEvent(allImageSlider, allImgBtnsRapper);
 
 let touchStart=0 ;
 let touchEnd=0 ;
@@ -368,4 +370,3 @@ function swipeEvent(theContainer,element) {
       }
   });
 }
-swipeEvent(allImageSlider, allImgBtnsRapper);

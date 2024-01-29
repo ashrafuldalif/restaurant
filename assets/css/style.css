@@ -1171,11 +1171,11 @@ body.nav-active { overflow: hidden; }
 
 .fullscreen{
   position: absolute;
-  height: 110vh;
+  height: 160vh;
   width: 100vw;
   display: flex;
   align-items: center;
-  top: 90vh;
+  top: 30vh;
   bottom: 0;
   right: 0;
   left: 0;
