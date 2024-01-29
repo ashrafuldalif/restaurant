@@ -1183,7 +1183,7 @@ body.nav-active { overflow: hidden; }
   background-color: rgba(0, 0, 0, 0.899);
   z-index: 100;
 }
-.img-in-fullscreen{
+.fullscreen img{
   width: 85vw;
 }
 

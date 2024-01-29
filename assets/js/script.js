@@ -187,7 +187,6 @@ function automationOfGellary() {
 check=false;
 }
 automationOfGellary();
-
 imageSlider.addEventListener("mouseenter",e=>{
   nextImage.classList.remove("hide");
   prevImage.classList.remove("hide");
@@ -353,20 +352,20 @@ fullScreen.addEventListener("click", function (event) {
 let touchStart=0 ;
 let touchEnd=0 ;
 
-function checkDirection() {
-  if(touchStart<touchEnd){
-    allImgBtnsRapper[0].click();
-  }
-  if(touchStart>touchEnd){
-    allImgBtnsRapper[1].click();
-  }
+function swipeEvent(theContainer,element) { 
+  theContainer.addEventListener("touchstart", (e) => {
+    touchStart = e.changedTouches[0].screenX;
+  });
+  
+  theContainer.addEventListener("touchend", (e) => {
+    touchEnd = e.changedTouches[0].screenX;
+
+      if (touchStart < touchEnd) {
+        element[0].click();
+      }
+      if (touchStart > touchEnd) {
+        element[1].click();
+      }
+  });
 }
-
-allImageSlider.addEventListener('touchstart',e=>{
-  touchStart=e.changedTouches[0].screenX;
-})
-
-allImageSlider.addEventListener('touchend',e=>{
-  touchEnd=e.changedTouches[0].screenX;
-  checkDirection()
-})
+swipeEvent(allImageSlider, allImgBtnsRapper);
