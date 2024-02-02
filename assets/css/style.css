@@ -949,29 +949,26 @@ body.nav-active { overflow: hidden; }
 \*-----------------------------------*/
 
 .image-slider{
-  margin-top: 30px;
-  height: clamp(200px ,80vh + 15rem ,120rem);
+  margin-top: 50px;
+  height: clamp(200px ,80vh + 10rem ,100rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(255, 0, 0);
 }
 .sliding-img-wrapper{
   display: grid ;
-  align-items: center;
-  justify-content: center;
   place-items: center;
-  grid-template-columns: clamp(300px,55vw + 20rem,150rem) ;
+  grid-template-columns:50px clamp(300px,55vw + 20rem,150rem) 50px ;
   grid-template-areas: 
-  'main'
+  'left main right'
   ;
   width: clamp(200px ,80vw, 150rem);
-  height: clamp(200px ,80vh + 15rem ,75rem);
-  border: 2px solid white;
+  height: clamp(200px ,80vh + 15rem ,80rem);
+  margin-left: auto;
+  margin-right: auto;
 }
 .gelaryImags,.frontOne,.hiddenOne{
-  height: 400px;
   width: clamp(250px,60vw + 15rem,400rem);
   height: clamp(150px ,55vh + 15rem ,100rem);
   border-radius: 20px;
@@ -1037,12 +1034,9 @@ body.nav-active { overflow: hidden; }
   transform: translate(1200px);
   
 }
-.all-image .all-img-btn ion-icon{ transform: rotate(-45deg); }
 
 /* all image  */
-.all-image{
-  margin-top: 10vh;
-}
+.all-image .all-img-btn ion-icon{ transform: rotate(-45deg); }
 .image-container{
   /* background-color: #fff6; */
   display: flex;
@@ -1966,20 +1960,16 @@ textarea.input-field {
     top: 50%;
     transform: translateY(-50%) rotate(45deg);
     transition: var(--transition-1);
+    z-index: 20;
   }
 
   
-  .image-slider .slider-btn{
-    position: relative;
-    
-}
-
   .hero .slider-btn ion-icon,.image-slider .slider-btn ion-icon { transform: rotate(-45deg); }
-
+  
   .hero .slider-btn.prev ,.image-slider .slider-btn.prev { left: 30px; }
-
+  
   .hero .slider-btn.next ,.image-slider .slider-btn.next { right: 30px; }
-
+  
   .hero .slider-btn:is(:hover, :focus-visible),  .image-slider .slider-btn:is(:hover, :focus-visible),.all-image .all-img-btn:is(:hover, :focus-visible) {
     background-color: var(--gold-crayola);
     color: var(--black);
@@ -1987,6 +1977,13 @@ textarea.input-field {
 
   /* gallery */
 
+  .image-slider .slider-btn{
+    position: absolute;
+    top: auto;
+    bottom: auto;
+  }
+  
+  
   /* .gelaryImags,.frontOne,.hiddenOne{
     height: 250px;
     width: 430px;
@@ -1997,6 +1994,10 @@ textarea.input-field {
   .image-slider .slider-btn{
 top: 20%;
   } */
+
+
+
+
   /**
    * RESERVATION
    */
@@ -2102,7 +2103,9 @@ top: 20%;
   .image-slider .slider-btn{
 top: 20%;
   } */
-
+.sliding-img-wrapper{
+  margin-right: 0;
+}
   /**
    * ABOUT
    */
