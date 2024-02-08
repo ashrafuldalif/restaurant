@@ -434,6 +434,15 @@ fulViewMenuPhoto.addEventListener("click", (e) => {
     fulViewMenuPhoto.style.marginTop = 0;
   }
 });
+
+
+
+
+
+// RESERVATION starts from here __________________________
+
+
+
 const Reservation = document.querySelector("#reservation");
 const rtime = Reservation.querySelector("#timeInput");
 const rsubmitBtn = Reservation.querySelector("#submitBtn");
@@ -490,7 +499,7 @@ function chackingTime(){
     let minTime = new Date().getHours();
     if(minTime>=14){
       Rdate.innerHTML="";
-      
+
     }
     for (var i = 0; i < rtime.options.length; i++) {
       if (rtime.options[i].value < minTime) {
@@ -509,8 +518,9 @@ Rdate.addEventListener('change',chackingTime)
 
 rsubmitBtn.addEventListener("click", (e) => {
   e.preventDefault();
-
 });
+
+// RESERVATION ends here ______________________________
 
 const languageData = {
   english: {
