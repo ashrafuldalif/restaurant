@@ -496,10 +496,8 @@ function theDate(){
 function chackingTime(){
 
   if ( theDate()== Rdate.value) {
-    let minTime = new Date().getHours();
-    if(minTime>=14){
-      Rdate.innerHTML="";
-
+    if (new Date().getHours() >= 14) {
+      Rdate.innerHTML = "";
     }
     for (var i = 0; i < rtime.options.length; i++) {
       if (rtime.options[i].value < minTime) {
