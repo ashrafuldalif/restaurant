@@ -1186,7 +1186,11 @@
         <div class="container">
           <div class="form reservation-form bg-black-10">
 
-            <form action="reservation.php" mathod="post" class="form-left" id="findATable">
+
+
+
+
+            <form action="reservation.php"  class="form-left" id="findATable" method="post">
 
               <h2 class="headline-1 text-center lang"> <span id="time">00:00:00</span>Online Reservation</h2>
 
@@ -1196,31 +1200,15 @@
                   <span class="lang">or fill out the order form</span>
                 </p>
                 <div class="input-wrapper">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    autocomplete="off"
-                    class="input-field input-lang"
-                  />
+                  <input type="text" name="name" value="" placeholder="Your Name"  autocomplete="off" class="input-field input-lang"/>
 
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Phone Number"
-                    autocomplete="off"
-                    class="input-field input-lang"
-                  />
+                  <input type="text" name="phone" value=""   placeholder="Phone Number" autocomplete="off" class="input-field input-lang"/>
                 </div>
 
                 <div class="input-wrapper">
                   <div class="icon-wrapper">
-                    <ion-icon
-                      name="person-outline"
-                      aria-hidden="true"
-                    ></ion-icon>
-
-                    <select name="person" class="input-field" id="personInput">
+                    <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+                    <select name="person" class="input-field" id="personInput" value="" >
                       <option value="1-person" class="lang">1 Person</option>
                       <option value="2-person" class="lang">2 Person</option>
                       <option value="3-person" class="lang">3 Person</option>
@@ -1262,20 +1250,14 @@
                       aria-hidden="true"
                     ></ion-icon>
 
-                    <input
-                      type="date"
-                      name="reservation-date"
-                      class="input-field"
-                      id="dateInput"
-                    />
+                    <input type="date" name="reservation-date" value=""  class="input-field" id="dateInput"/>
 
                     <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
                   </div>
 
                   <div class="icon-wrapper">
-                    <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-                    <select  class="input-field" id="timeInput">
+                    <ion-icon  aria-hidden="true"></ion-icon>
+                    <select  class="input-field" id="timeInput" value=""  name="time-outline">
                       <option value=8 class="lang">08 : 00</option>
                       <option value=9 class="lang">09 : 00</option>
                       <option value=10  class="lang">10 : 00</option>
@@ -1297,22 +1279,36 @@
                   </div>
                 </div>
 
-                <textarea
-                  name="message"
-                  placeholder="Message"
-                  autocomplete="off"
-                  class="input-field input-lang"
-                ></textarea>
+                <textarea name="message" placeholder="Message" value=""  autocomplete="off" class="input-field input-lang"></textarea>
 
                 <button type="submit" class="btn btn-secondary" onclick="submitForm();" id="submitBtn">
                   <span class="text text-1 lang">Book A Table</span>
 
-                  <span class="text text-2 lang" aria-hidden="true"
-                    >Book A Table</span
-                  >
+                  <span class="text text-2 lang" aria-hidden="true"> Book A Table </span>
                 </button>
+            
               </form>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
               <div
                 class="form-right text-center"
                 style="
