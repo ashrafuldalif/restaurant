@@ -1185,7 +1185,8 @@
       <section class="reservation" id="reservation">
         <div class="container">
           <div class="form reservation-form bg-black-10">
-            <form action="" class="form-left" id="findATable">
+
+            <form action="reservation.php" mathod="post" class="form-left" id="findATable">
 
               <h2 class="headline-1 text-center lang"> <span id="time">00:00:00</span>Online Reservation</h2>
 
@@ -1303,7 +1304,7 @@
                   class="input-field input-lang"
                 ></textarea>
 
-                <button type="submit" class="btn btn-secondary" id="submitBtn">
+                <button type="submit" class="btn btn-secondary" onclick="submitForm();" id="submitBtn">
                   <span class="text text-1 lang">Book A Table</span>
 
                   <span class="text text-2 lang" aria-hidden="true"

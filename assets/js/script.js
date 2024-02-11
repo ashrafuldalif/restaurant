@@ -1,5 +1,15 @@
 "use strict";
 
+
+
+function submitForm() {
+  document.getElementById("findATable").submit();
+}
+
+
+
+
+
 /**
  * PRELOAD
  *
@@ -506,6 +516,7 @@ function chackingTime(){
     }
   }
 }
+
 Rdate.addEventListener('change',chackingTime)
 
 //   // Set the minimum time to the current time
