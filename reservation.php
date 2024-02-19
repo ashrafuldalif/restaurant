@@ -1,9 +1,9 @@
 <?php
 
 $host = "localhost";
-$usr = "root";
-$pass = "";
-$database = "mydb";
+$usr = "u735289645_limmon";
+$pass = "Limmon@@123";
+$database = "u735289645_mydb";
 
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -29,8 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = $_POST["message"];
 
     if ($stmt->execute()) {
-        echo "<script>alert('Reservation Complete')</script>";
-        header("Location: http://localhost/");
+        // echo "<script>alert('Reservation Complete')</script>";
+        header("Location: https://limmons.de/");
     } else {
         echo "Error: " . $sql . "<br>" . $ser->error;
     }

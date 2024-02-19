@@ -7,7 +7,9 @@ function submitForm() {
 }
 
 
-
+function printHello(){
+  console.log("Hello")
+};
 
 
 /**
@@ -291,11 +293,12 @@ function show() {
   }, 3000);
 }
 
-const allImgBtnsRapper = document.querySelectorAll(".btn-wrapper");
 const imageContainer = document.querySelector(".image-container");
-const allImageSlider = document.querySelector(".image-scroller");
+const itemContainer = document.querySelector(".item-container");
+const allImgBtnsRapper = document.querySelectorAll(".btn-wrapper");
+const allImageSlider = imageContainer.querySelector(".image-scroller");
 const barsRapper = document.querySelector(".bars-wrapper");
-const fullScreenImages = document.querySelectorAll(".images");
+const fullScreenImages = imageContainer.querySelectorAll(".images");
 const fullScreen = document.querySelector("#fullImage");
 const root = document.documentElement;
 const indexValue = getComputedStyle(root);
@@ -314,23 +317,50 @@ imageContainer.addEventListener("mouseout", () => {
     e.childNodes[1].classList.remove("makeBig");
   });
 });
+itemContainer.addEventListener("mouseover", () => {
+  allImgBtnsRapper.forEach((e) => {
+    e.classList.add("showTheBtns");
+    e.childNodes[1].classList.add("makeBig");
+  });
+});
 
-for (let i = 0; i < 2; i++) {
+itemContainer.addEventListener("mouseout", () => {
+  allImgBtnsRapper.forEach((e) => {
+    e.classList.remove("showTheBtns");
+    e.childNodes[1].classList.remove("makeBig");
+  });
+});
+
+for (let i = 0; i < 4; i++) {
   allImgBtnsRapper[i].addEventListener("click", (e) => {
     let imgSliderIndex = parseInt(
       indexValue.getPropertyValue("--slider-index")
     );
+    let itemSliderIndex = parseInt(
+      indexValue.getPropertyValue("--item-slider-index")
+    );
     let theBtn = e.target.classList[0];
+
     if (theBtn == "btn1") {
       barsRapper.children[imgSliderIndex].classList.remove("active-bar");
       imgSliderIndex = imgSliderIndex == 0 ? bars - 1 : imgSliderIndex - 1;
       root.style.setProperty("--slider-index", imgSliderIndex);
       barsRapper.children[imgSliderIndex].classList.add("active-bar");
-    } else if (theBtn == "btn2") {
+    } 
+    
+    if (theBtn == "btn2") {
       barsRapper.children[imgSliderIndex].classList.remove("active-bar");
       imgSliderIndex = imgSliderIndex == bars - 1 ? 0 : imgSliderIndex + 1;
       root.style.setProperty("--slider-index", imgSliderIndex);
       barsRapper.children[imgSliderIndex].classList.add("active-bar");
+    }
+    if(theBtn=="btn01"){
+      itemSliderIndex = itemSliderIndex == 0 ? bars - 1 : itemSliderIndex - 1;
+      root.style.setProperty("--item-slider-index", itemSliderIndex);
+    }
+    if(theBtn=="btn02"){
+      itemSliderIndex = itemSliderIndex == bars - 1 ? 0 : itemSliderIndex + 1;
+      root.style.setProperty("--item-slider-index", itemSliderIndex);
     }
   });
 }

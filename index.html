@@ -375,6 +375,45 @@
           class="section service bg-black-10 text-center"
           aria-label="service"
         >
+
+        
+                <div class="item-container">
+
+            <div class="btn01 btn-wrapper showTheBtns ">
+              <button class="btn01 all-img-btn prev " aria-label="slide to previous">
+                <ion-icon class="btn01" name="chevron-back"></ion-icon>
+              </button>
+            </div>
+            
+            <div class="btn02 btn-wrapper showTheBtns ">
+            <button class="btn02 all-img-btn next" aria-label="slide to next" >
+              <ion-icon class="btn02" name="chevron-forward"></ion-icon>
+            </button>
+            </div>
+            <div class="item-scroller">
+              <div class="items"><img src="./assets/images/all-image/3ec5f310b99bdd03232bffe63c25bedc.jpg"></div>
+              <div class="items"><img src="./assets/images/all-image/4e3b5eafeb5bcf99ede85f7f72302f8d.jpg"></div>
+              <div class="items"><img src="./assets/images/all-image/5c5afe3c0d7296e58b4441d087349e3a.jpg"></div>
+              <div class="items"><img src="./assets/images/all-image/60502d37f5bdeff3f528f353003e339f.jpg"></div>
+              <div class="items"><img src="./assets/images/all-image/6b115f86a20f33a70c399821bd562894.jpg"></div>
+              <div class="items"><img src="./assets/images/all-image/8adf8dd5bdc7890ca98114de621caf6d.jpg"></div>
+              <div class="items"><img src="./assets/images/all-image/ab36409c1701081ee1838556eee67e79.jpg"></div>
+              <div class="items"><img src="./assets/images/all-image/b0f22d18f13a016702288ffe985d30c3.jpg"></div>
+              <div class="items"><img src="./assets/images/all-image/b74b82bd36310472a4bfb9dbcec769f7.jpg"></div>
+              <div class="items"><img src="./assets/images/all-image/c8956c3320abdbd11fb3363852e40655.jpg"></div>
+              <div class="items"><img src="./assets/images/all-image/d61d9799dae3feb2b1d2b01026b65bf2.jpg"></div>
+              <div class="items"><img src="./assets/images/all-image/daacde957999e2869480796333d567b7.jpg"></div>            
+              <div class="items"><img src="./assets/images/all-image/e0b78668acf24961a492173f8c69c141.jpg"></div>
+              <div class="items"><img src="./assets/images/all-image/f8ead1a71a3176b00152928299be14e1.jpg"></div>
+              <div class="items"><img src="./assets/images/all-image/rotate.jpg"></div>
+              <div class="items"><img src="./assets/images/all-image/rotate2.jpg"></div>
+              <div class="items"><img src="./assets/images/all-image/717312a87a1d69edf9cda0deeddde6d6.jpg"></div>
+              <div class="items"><img src="./assets/images/all-image/fa9a8a55c1b85548186c05b4b45e503f.jpg"></div>
+              <div class="items"><img src="./assets/images/all-image/rotate3.jpg"></div>
+              <div class="items"><img src="./assets/images/all-image/rtate.jpg"></div>
+            </div>
+          </div>
+
           <div class="container">
             <p class="section-subtitle label-2 lang">Flavors For Royalty</p>
 
@@ -1190,6 +1229,7 @@
 
 
 
+
             <form action="reservation.php"  class="form-left" id="findATable" method="post">
 
               <h2 class="headline-1 text-center lang"> <span id="time">00:00:00</span>Online Reservation</h2>
@@ -1200,15 +1240,15 @@
                   <span class="lang">or fill out the order form</span>
                 </p>
                 <div class="input-wrapper">
-                  <input type="text" name="name" value="" placeholder="Your Name"  autocomplete="off" class="input-field input-lang"/>
+                  <input type="text" name="name" value="" placeholder="Your Name"  autocomplete="off" class="input-field input-lang" required/>
 
-                  <input type="text" name="phone" value=""   placeholder="Phone Number" autocomplete="off" class="input-field input-lang"/>
+                  <input type="number" id="phoneNumber" name="phone" value=""   placeholder="Phone Number" autocomplete="off" class="input-field input-lang" required/>
                 </div>
 
                 <div class="input-wrapper">
                   <div class="icon-wrapper">
                     <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
-                    <select name="person" class="input-field" id="personInput" value="" >
+                    <select name="person" class="input-field" id="personInput" value="" required>
                       <option value="1-person" class="lang">1 Person</option>
                       <option value="2-person" class="lang">2 Person</option>
                       <option value="3-person" class="lang">3 Person</option>
@@ -1250,14 +1290,14 @@
                       aria-hidden="true"
                     ></ion-icon>
 
-                    <input type="date" name="reservation-date" value=""  class="input-field" id="dateInput"/>
+                    <input type="date" name="reservation-date" required value=""  class="input-field" id="dateInput"/>
 
                     <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
                   </div>
 
                   <div class="icon-wrapper">
                     <ion-icon  aria-hidden="true"></ion-icon>
-                    <select  class="input-field" id="timeInput" value=""  name="time-outline">
+                    <select  class="input-field" id="timeInput" required value=""  name="time-outline">
                       <option value=8 class="lang">08 : 00</option>
                       <option value=9 class="lang">09 : 00</option>
                       <option value=10  class="lang">10 : 00</option>
@@ -1289,26 +1329,6 @@
             
               </form>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              
               <div
                 class="form-right text-center"
                 style="
