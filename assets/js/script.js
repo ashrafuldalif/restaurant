@@ -294,7 +294,7 @@ function show() {
 }
 
 const imageContainer = document.querySelector(".image-container");
-const itemContainer = document.querySelector(".item-container");
+// const itemContainer = document.querySelector(".item-container");
 const allImgBtnsRapper = document.querySelectorAll(".btn-wrapper");
 const allImageSlider = imageContainer.querySelector(".image-scroller");
 const barsRapper = document.querySelector(".bars-wrapper");
@@ -317,21 +317,21 @@ imageContainer.addEventListener("mouseout", () => {
     e.childNodes[1].classList.remove("makeBig");
   });
 });
-itemContainer.addEventListener("mouseover", () => {
-  allImgBtnsRapper.forEach((e) => {
-    e.classList.add("showTheBtns");
-    e.childNodes[1].classList.add("makeBig");
-  });
-});
+// itemContainer.addEventListener("mouseover", () => {
+//   allImgBtnsRapper.forEach((e) => {
+//     e.classList.add("showTheBtns");
+//     e.childNodes[1].classList.add("makeBig");
+//   });
+// });
 
-itemContainer.addEventListener("mouseout", () => {
-  allImgBtnsRapper.forEach((e) => {
-    e.classList.remove("showTheBtns");
-    e.childNodes[1].classList.remove("makeBig");
-  });
-});
+// itemContainer.addEventListener("mouseout", () => {
+//   allImgBtnsRapper.forEach((e) => {
+//     e.classList.remove("showTheBtns");
+//     e.childNodes[1].classList.remove("makeBig");
+//   });
+// });
 
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < 2; i++) {
   allImgBtnsRapper[i].addEventListener("click", (e) => {
     let imgSliderIndex = parseInt(
       indexValue.getPropertyValue("--slider-index")
@@ -455,8 +455,8 @@ menuImages.forEach((e) => {
   e.addEventListener("click", () => {
     currentElement = e;
     let Themenuimage = e.src;
+  
     let Y = getPosition(currentElement);
-    console.log(Y / 10);
     fulViewMenuPhoto.style.marginTop = `${Y / 20}px`;
     fulViewMenuPhoto.firstChild.setAttribute("src", Themenuimage);
     fulViewMenuPhoto.classList.toggle("hide");
@@ -549,10 +549,6 @@ function chackingTime(){
 
 Rdate.addEventListener('change',chackingTime)
 
-//   // Set the minimum time to the current time
-//   rtime.min = new Date().toTimeString().split(" ")[0];
-
-//   const isAfter2PM = hours > 14;
 
 
 rsubmitBtn.addEventListener("click", (e) => {

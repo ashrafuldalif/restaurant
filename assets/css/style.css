@@ -1223,7 +1223,7 @@ margin: 0 auto;
 
 }
 .fullViewMenuPhoto img{
-transform: scale(2);
+width:80vw;
 }
 
 .fullscreen img{
@@ -1240,8 +1240,6 @@ transform: scale(2);
   z-index: -100;
   visibility: hidden;
 }
-
-
 
 
 /*-----------------------------------*\
@@ -1417,7 +1415,10 @@ transform: scale(2);
   bottom: 0;
   right: 0;
 }
-
+.menu-card figure > img {
+  height: 100px;
+  width: 100px;
+}
 
 
 
@@ -1925,9 +1926,9 @@ input[type="number"]::-moz-outer-spin-button {
     align-items: center;
     gap: 15px;
   }
-
+  
   .menu-card .badge { margin-block-start: 0; }
-
+  
   .menu-card .span {
     flex-grow: 1;
     display: flex;
@@ -1939,7 +1940,7 @@ input[type="number"]::-moz-outer-spin-button {
   .menu-card .span::before {
     content: "";
     height: 6px;
-    flex-grow: 1;
+    flex-grow: 2;
     border-block: 1px solid var(--white-alpha-20);
   }
 
@@ -2598,4 +2599,10 @@ top: 20%;
 }
 .form-left{
   padding-top: 0;
+}
+
+
+.blue{
+
+  background-color: blue;
 }
