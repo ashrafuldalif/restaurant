@@ -1343,7 +1343,7 @@ width:80vw;
   #MENU
 \*-----------------------------------*/
 
-.menu .section-title { margin-block-end: 40px; }
+.menu .section-title {margin-block-end: 40px;}
 
 .menu .grid-list { margin-block-end: 50px; }
 
@@ -1351,6 +1351,7 @@ width:80vw;
   display: flex;
   align-items: flex-start;
   gap: 20px;
+  word-wrap: break-word;
 }
 
 .hover\:card .card-banner { background-color: var(--gold-crayola); }
@@ -1581,7 +1582,9 @@ input[type="number"]::-moz-outer-spin-button {
 
 .feature-card:hover .card-icon { transform: scale(-1) rotate(180deg); }
 
-.feature-card .card-title { margin-block: 20px; }
+.feature-card .card-title { margin-block: 20px;
+word-wrap: break-word;
+  }
 
 .feature-card .card-text {
   color: var(--quick-silver);
