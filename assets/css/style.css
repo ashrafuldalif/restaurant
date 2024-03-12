@@ -2438,7 +2438,10 @@ top: 20%;
     transform: scale(1);
   }
 
-
+.little{
+  font-size: clamp(5rem , 5rem + 3vw , 6rem + 3vw );
+  line-height: calc(8.5rem + 1vh);
+}
 
   /**
    * SERVICE
