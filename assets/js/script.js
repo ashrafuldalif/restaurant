@@ -180,6 +180,25 @@ addEventOnElements(
 
 window.addEventListener("load", autoSlide);
 
+//  const burger=document.getElementById("burger");
+//  const snacks = document.getElementById("Snacks");
+//  const drinks = document.getElementById("Drinks");
+
+  // document.querySelectorAll("[data-scroll-target]").forEach((anchor) => {
+  //   // fullmenuBtn.click();
+  //   anchor.addEventListener("click", function (e) {
+  //     e.preventDefault();
+  //     const target = document.getElementById(
+  //       this.getAttribute("data-scroll-target")
+  //     );
+  //     if (target) {
+  //       target.scrollIntoView({ behavior: "smooth" });
+  //     }
+  //   });
+  // });
+
+
+
 /**
  * PARALLAX EFFECT
  */
@@ -206,92 +225,94 @@ window.addEventListener("mousemove", function (event) {
 /**
  * gallery______||
  */
-const imgdivs = document.querySelectorAll(".gelaryImags");
-const nextImage = document.querySelector("[data-gallery-next-btn]");
-const prevImage = document.querySelector("[data-gallery-prev-btn]");
-const frontOne = document.querySelector(".frontOne");
-const hiddenOne = document.querySelector(".hiddenOne");
-const imageSlider = document.querySelector(".image-slider");
-let check, autoImgPlay;
-function automationOfGellary() {
-  autoImgPlay = setInterval(nextimageshow, 4300);
-  check = false;
-}
-automationOfGellary();
-imageSlider.addEventListener("mouseenter", (e) => {
-  nextImage.classList.remove("hide");
-  prevImage.classList.remove("hide");
-  check = false;
-  playOrStopAutoImage();
-});
-imageSlider.addEventListener("mouseleave", (e) => {
-  nextImage.classList.add("hide");
-  prevImage.classList.add("hide");
-  check = true;
-  playOrStopAutoImage();
-});
-function playOrStopAutoImage() {
-  if (check) {
-    automationOfGellary();
-  } else {
-    clearInterval(autoImgPlay);
-  }
-}
 
-nextImage.addEventListener("click", () => {
-  nextImage.classList.add("hide2");
-  prevImage.classList.add("hide2");
-  nextimageshow();
-  show();
-});
-function nextimageshow() {
-  let temp = imgdivs[7].classList[0];
-  frontOne.classList.add(temp);
-  frontOne.classList.add("nextPhoto");
-  setTimeout(() => {
-    frontOne.classList.remove("nextPhoto");
-    frontOne.classList.remove(temp);
-  }, 1800);
-  for (let i = 7; i >= 0; i--) {
-    if (i == 0) {
-      imgdivs[i].classList.replace(imgdivs[i].classList[0], temp);
-    } else {
-      imgdivs[i].classList.replace(
-        imgdivs[i].classList[0],
-        imgdivs[i - 1].classList[0]
-      );
-    }
-  }
-}
 
-prevImage.addEventListener("click", function () {
-  let temp = imgdivs[0].classList[0];
-  hiddenOne.classList.remove("nextPhoto");
-  hiddenOne.classList.add(temp);
-  nextImage.classList.add("hide2");
-  prevImage.classList.add("hide2");
-  setTimeout(() => {
-    hiddenOne.classList.add("nextPhoto");
-    hiddenOne.classList.remove(temp);
-  }, 2000);
-  show();
-  for (let i = 0; i <= 7; i++) {
-    if (i == 7) {
-      imgdivs[i].classList.replace(imgdivs[i].classList[0], temp);
-    } else {
-      imgdivs[i].classList.replace(
-        imgdivs[i].classList[0],
-        imgdivs[i + 1].classList[0]
-      );
-    }
-  }
-});
-function show() {
-  setTimeout(() => {
-    nextImage.classList.remove("hide2");
-    prevImage.classList.remove("hide2");
-  }, 3000);
-}
+// const imgdivs = document.querySelectorAll(".gelaryImags");
+// const nextImage = document.querySelector("[data-gallery-next-btn]");
+// const prevImage = document.querySelector("[data-gallery-prev-btn]");
+// const frontOne = document.querySelector(".frontOne");
+// const hiddenOne = document.querySelector(".hiddenOne");
+// const imageSlider = document.querySelector(".image-slider");
+// let check, autoImgPlay;
+// function automationOfGellary() {
+//   autoImgPlay = setInterval(nextimageshow, 4300);
+//   check = false;
+// }
+// automationOfGellary();
+// imageSlider.addEventListener("mouseenter", (e) => {
+//   nextImage.classList.remove("hide");
+//   prevImage.classList.remove("hide");
+//   check = false;
+//   playOrStopAutoImage();
+// });
+// imageSlider.addEventListener("mouseleave", (e) => {
+//   nextImage.classList.add("hide");
+//   prevImage.classList.add("hide");
+//   check = true;
+//   playOrStopAutoImage();
+// });
+// function playOrStopAutoImage() {
+//   if (check) {
+//     automationOfGellary();
+//   } else {
+//     clearInterval(autoImgPlay);
+//   }
+// }
+
+// nextImage.addEventListener("click", () => {
+//   nextImage.classList.add("hide2");
+//   prevImage.classList.add("hide2");
+//   nextimageshow();
+//   show();
+// });
+// function nextimageshow() {
+//   let temp = imgdivs[7].classList[0];
+//   frontOne.classList.add(temp);
+//   frontOne.classList.add("nextPhoto");
+//   setTimeout(() => {
+//     frontOne.classList.remove("nextPhoto");
+//     frontOne.classList.remove(temp);
+//   }, 1800);
+//   for (let i = 7; i >= 0; i--) {
+//     if (i == 0) {
+//       imgdivs[i].classList.replace(imgdivs[i].classList[0], temp);
+//     } else {
+//       imgdivs[i].classList.replace(
+//         imgdivs[i].classList[0],
+//         imgdivs[i - 1].classList[0]
+//       );
+//     }
+//   }
+// }
+
+// prevImage.addEventListener("click", function () {
+//   let temp = imgdivs[0].classList[0];
+//   hiddenOne.classList.remove("nextPhoto");
+//   hiddenOne.classList.add(temp);
+//   nextImage.classList.add("hide2");
+//   prevImage.classList.add("hide2");
+//   setTimeout(() => {
+//     hiddenOne.classList.add("nextPhoto");
+//     hiddenOne.classList.remove(temp);
+//   }, 2000);
+//   show();
+//   for (let i = 0; i <= 7; i++) {
+//     if (i == 7) {
+//       imgdivs[i].classList.replace(imgdivs[i].classList[0], temp);
+//     } else {
+//       imgdivs[i].classList.replace(
+//         imgdivs[i].classList[0],
+//         imgdivs[i + 1].classList[0]
+//       );
+//     }
+//   }
+// });
+// function show() {
+//   setTimeout(() => {
+//     nextImage.classList.remove("hide2");
+//     prevImage.classList.remove("hide2");
+//   }, 3000);
+// }
 
 const imageContainer = document.querySelector(".image-container");
 // const itemContainer = document.querySelector(".item-container");
@@ -429,10 +450,11 @@ function swipeEvent(theContainer, element) {
 
 const fullmenu = document.querySelector("[data-fullmenu]");
 const fullmenuBtn = document.querySelectorAll("[data-fullmenu-btn]");
+console.log(fullmenuBtn);
 const showHideFullMenu = () => {
   fullmenu.classList.toggle("hide");
-  fullmenuBtn[0].classList.toggle("hide");
-  fullmenuBtn[1].classList.toggle("hide");
+  fullmenuBtn[6].classList.toggle("hide");
+  fullmenuBtn[7].classList.toggle("hide");
 };
 addEventOnElements(fullmenuBtn, "click", showHideFullMenu);
 

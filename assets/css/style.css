@@ -1084,13 +1084,13 @@ margin: 0 auto;
   width: 90%;
   /* width: calc(100% - 10rem); */
   overflow-y: hidden;
-  /* overflow: scroll; */
   white-space: nowrap;
   -ms-overflow-style: none;
   scrollbar-width: none; 
   scroll-behavior: smooth;
   overflow:visible;
   position: relative;
+  margin-bottom: 12rem;
   transform: translateX(calc( var(--slider-index) * -100% ));
   transition: all 1s ease-in-out ;
 }
@@ -1218,17 +1218,21 @@ margin: 0 auto;
   top: 30vh;
   bottom: 0;
   right: 0;
-  left: 0;
+  left: 0; 
   background-color: rgba(0, 0, 0, 0.899);
-  z-index: 100;
+  z-index: 5;
 
 }
+
 .fullViewMenuPhoto img{
 width:80vw;
 }
 
 .fullscreen img{
   width: 85vw;
+  height: max-content;
+  margin-bottom: 100px;
+  z-index: 10;
 }
 
 .hide{
