@@ -314,30 +314,30 @@ window.addEventListener("mousemove", function (event) {
 //   }, 3000);
 // }
 
-const imageContainer = document.querySelector(".image-container");
+// const imageContainer = document.querySelector(".image-container");
 // const itemContainer = document.querySelector(".item-container");
-const allImgBtnsRapper = document.querySelectorAll(".btn-wrapper");
-const allImageSlider = imageContainer.querySelector(".image-scroller");
-const barsRapper = document.querySelector(".bars-wrapper");
-const fullScreenImages = imageContainer.querySelectorAll(".images");
-const fullScreen = document.querySelector("#fullImage");
-const root = document.documentElement;
-const indexValue = getComputedStyle(root);
-let bars;
-
-imageContainer.addEventListener("mouseover", () => {
-  allImgBtnsRapper.forEach((e) => {
-    e.classList.add("showTheBtns");
-    e.childNodes[1].classList.add("makeBig");
-  });
-});
-
-imageContainer.addEventListener("mouseout", () => {
-  allImgBtnsRapper.forEach((e) => {
-    e.classList.remove("showTheBtns");
-    e.childNodes[1].classList.remove("makeBig");
-  });
-});
+// const allImgBtnsRapper = document.querySelectorAll(".btn-wrapper");
+// const allImageSlider = imageContainer.querySelector(".image-scroller");
+// const barsRapper = document.querySelector(".bars-wrapper");
+// const fullScreenImages = imageContainer.querySelectorAll(".images");
+// const fullScreen = document.querySelector("#fullImage");
+// const root = document.documentElement;
+// const indexValue = getComputedStyle(root);
+// let bars;
+// 
+// imageContainer.addEventListener("mouseover", () => {
+  // allImgBtnsRapper.forEach((e) => {
+    // e.classList.add("showTheBtns");
+    // e.childNodes[1].classList.add("makeBig");
+  // });
+// });
+// 
+// imageContainer.addEventListener("mouseout", () => {
+  // allImgBtnsRapper.forEach((e) => {
+    // e.classList.remove("showTheBtns");
+    // e.childNodes[1].classList.remove("makeBig");
+  // });
+// });
 // itemContainer.addEventListener("mouseover", () => {
 //   allImgBtnsRapper.forEach((e) => {
 //     e.classList.add("showTheBtns");
@@ -352,101 +352,101 @@ imageContainer.addEventListener("mouseout", () => {
 //   });
 // });
 
-for (let i = 0; i < 2; i++) {
-  allImgBtnsRapper[i].addEventListener("click", (e) => {
-    let imgSliderIndex = parseInt(
-      indexValue.getPropertyValue("--slider-index")
-    );
-    let itemSliderIndex = parseInt(
-      indexValue.getPropertyValue("--item-slider-index")
-    );
-    let theBtn = e.target.classList[0];
+// for (let i = 0; i < 2; i++) {
+//   allImgBtnsRapper[i].addEventListener("click", (e) => {
+//     let imgSliderIndex = parseInt(
+//       indexValue.getPropertyValue("--slider-index")
+//     );
+//     let itemSliderIndex = parseInt(
+//       indexValue.getPropertyValue("--item-slider-index")
+//     );
+//     let theBtn = e.target.classList[0];
 
-    if (theBtn == "btn1") {
-      barsRapper.children[imgSliderIndex].classList.remove("active-bar");
-      imgSliderIndex = imgSliderIndex == 0 ? bars - 1 : imgSliderIndex - 1;
-      root.style.setProperty("--slider-index", imgSliderIndex);
-      barsRapper.children[imgSliderIndex].classList.add("active-bar");
-    } 
+//     if (theBtn == "btn1") {
+//       barsRapper.children[imgSliderIndex].classList.remove("active-bar");
+//       imgSliderIndex = imgSliderIndex == 0 ? bars - 1 : imgSliderIndex - 1;
+//       root.style.setProperty("--slider-index", imgSliderIndex);
+//       barsRapper.children[imgSliderIndex].classList.add("active-bar");
+//     } 
     
-    if (theBtn == "btn2") {
-      barsRapper.children[imgSliderIndex].classList.remove("active-bar");
-      imgSliderIndex = imgSliderIndex == bars - 1 ? 0 : imgSliderIndex + 1;
-      root.style.setProperty("--slider-index", imgSliderIndex);
-      barsRapper.children[imgSliderIndex].classList.add("active-bar");
-    }
-    if(theBtn=="btn01"){
-      itemSliderIndex = itemSliderIndex == 0 ? bars - 1 : itemSliderIndex - 1;
-      root.style.setProperty("--item-slider-index", itemSliderIndex);
-    }
-    if(theBtn=="btn02"){
-      itemSliderIndex = itemSliderIndex == bars - 1 ? 0 : itemSliderIndex + 1;
-      root.style.setProperty("--item-slider-index", itemSliderIndex);
-    }
-  });
-}
+//     if (theBtn == "btn2") {
+//       barsRapper.children[imgSliderIndex].classList.remove("active-bar");
+//       imgSliderIndex = imgSliderIndex == bars - 1 ? 0 : imgSliderIndex + 1;
+//       root.style.setProperty("--slider-index", imgSliderIndex);
+//       barsRapper.children[imgSliderIndex].classList.add("active-bar");
+//     }
+//     if(theBtn=="btn01"){
+//       itemSliderIndex = itemSliderIndex == 0 ? bars - 1 : itemSliderIndex - 1;
+//       root.style.setProperty("--item-slider-index", itemSliderIndex);
+//     }
+//     if(theBtn=="btn02"){
+//       itemSliderIndex = itemSliderIndex == bars - 1 ? 0 : itemSliderIndex + 1;
+//       root.style.setProperty("--item-slider-index", itemSliderIndex);
+//     }
+//   });
+// }
 
-window.addEventListener("resize", (e) => {
-  calculatePrograssBar();
-});
-function calculatePrograssBar(progressBar) {
-  barsRapper.innerHTML = "";
-  const itemCount = allImageSlider.children.length;
-  const itemPerScreen = parseInt(
-    getComputedStyle(allImageSlider).getPropertyValue("--img-per-screen")
-  );
-  let imgSliderIndex = parseInt(indexValue.getPropertyValue("--slider-index"));
-  const countBar = Math.ceil(itemCount / itemPerScreen);
-  bars = countBar;
-  for (let i = 0; i < countBar; i++) {
-    const barItem = document.createElement("div");
-    barItem.classList.add("progress");
-    barItem.onclick = function () {
-      root.style.setProperty("--slider-index", i);
-      calculatePrograssBar();
-    };
-    if (i == imgSliderIndex) {
-      barItem.classList.add("active-bar");
-    }
-    barsRapper.appendChild(barItem);
-  }
-}
-calculatePrograssBar();
-fullScreenImages.forEach((e) => {
-  let theImage = e.children[0].src;
-  e.addEventListener("click", () => {
-    fullScreen.children[0].setAttribute("src", theImage);
-    fullScreen.classList.remove("hide");
-    fullScreen.scrollIntoView({ behavior: "smooth" });
-  });
-});
-fullScreen.addEventListener("click", function (event) {
-  if (event.target === fullScreen) {
-    fullScreen.classList.add("hide");
-    allImageSlider.scrollIntoView({ behavior: "smooth" });
-  }
-});
-swipeEvent(allImageSlider, allImgBtnsRapper);
+// window.addEventListener("resize", (e) => {
+//   calculatePrograssBar();
+// });
+// function calculatePrograssBar(progressBar) {
+//   barsRapper.innerHTML = "";
+//   const itemCount = allImageSlider.children.length;
+//   const itemPerScreen = parseInt(
+//     getComputedStyle(allImageSlider).getPropertyValue("--img-per-screen")
+//   );
+//   let imgSliderIndex = parseInt(indexValue.getPropertyValue("--slider-index"));
+//   const countBar = Math.ceil(itemCount / itemPerScreen);
+//   bars = countBar;
+//   for (let i = 0; i < countBar; i++) {
+//     const barItem = document.createElement("div");
+//     barItem.classList.add("progress");
+//     barItem.onclick = function () {
+//       root.style.setProperty("--slider-index", i);
+//       calculatePrograssBar();
+//     };
+//     if (i == imgSliderIndex) {
+//       barItem.classList.add("active-bar");
+//     }
+//     barsRapper.appendChild(barItem);
+//   }
+// }
+// calculatePrograssBar();
+// fullScreenImages.forEach((e) => {
+//   let theImage = e.children[0].src;
+//   e.addEventListener("click", () => {
+//     fullScreen.children[0].setAttribute("src", theImage);
+//     fullScreen.classList.remove("hide");
+//     fullScreen.scrollIntoView({ behavior: "smooth" });
+//   });
+// });
+// fullScreen.addEventListener("click", function (event) {
+//   if (event.target === fullScreen) {
+//     fullScreen.classList.add("hide");
+//     allImageSlider.scrollIntoView({ behavior: "smooth" });
+//   }
+// });
+// swipeEvent(allImageSlider, allImgBtnsRapper);
 
-let touchStart = 0;
-let touchEnd = 0;
+// let touchStart = 0;
+// let touchEnd = 0;
 
-function swipeEvent(theContainer, element) {
-  theContainer.addEventListener("touchstart", (e) => {
-    touchStart = e.changedTouches[0].screenX;
-  });
+// function swipeEvent(theContainer, element) {
+//   theContainer.addEventListener("touchstart", (e) => {
+//     touchStart = e.changedTouches[0].screenX;
+//   });
 
-  theContainer.addEventListener("touchend", (e) => {
-    touchEnd = e.changedTouches[0].screenX;
+//   theContainer.addEventListener("touchend", (e) => {
+//     touchEnd = e.changedTouches[0].screenX;
 
-    if (touchStart < touchEnd) {
-      element[0].click();
-    }
-    if (touchStart > touchEnd) {
-      element[1].click();
-    }
-  });
-}
+//     if (touchStart < touchEnd) {
+//       element[0].click();
+//     }
+//     if (touchStart > touchEnd) {
+//       element[1].click();
+//     }
+//   });
+// }
 
 const fullmenu = document.querySelector("[data-fullmenu]");
 const fullmenuBtn = document.querySelectorAll("[data-fullmenu-btn]");

@@ -19,8 +19,8 @@
    * COLORS
    */
 
-  --gold-crayola: hsl(38, 61%, 73%);
-  --quick-silver: hsla(0, 0%, 65%, 1);
+  --gold-crayola:#07b9ad;
+  --quick-silver:#b5deff;
   --davys-grey: hsla(30, 3%, 34%, 1);
   --lite-grey: rgb(156, 156, 156);
   --smoky-black-1: hsla(40, 12%, 5%, 1);
@@ -1773,6 +1773,8 @@ word-wrap: break-word;
   display: inline;
 }
 
+
+
 /*-----------------------------------*\
   #MEDIA QUERIES
 \*-----------------------------------*/
@@ -2644,8 +2646,7 @@ top: 20%;
   padding-top: 0;
 }
 
-
-.blue{
-
-  background-color: blue;
+.high-light{
+  color:var(--white);
+  font-size: 2.5rem;
 }
