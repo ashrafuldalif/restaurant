@@ -2896,6 +2896,9 @@ top: 20%;
     left: 0;
   }
 }
+pre{
+  display: inline;
+}
 @media (max-width: 650px) {
   .all-image .all-img-btn {
     transform: translateY(-50%) rotate(45deg) scale(0.6);
@@ -2915,4 +2918,5 @@ top: 20%;
 .high-light {
   color: var(--white);
   font-size: 2.5rem;
+  margin-top: 20px;
 }
