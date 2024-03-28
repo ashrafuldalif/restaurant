@@ -2,10 +2,10 @@
 
 
 
-function submitForm() {
+// function submitForm() {
   
-  document.getElementById("findATable").submit();
-}
+//   document.getElementById("findATable").submit();
+// }
 
 
 
@@ -14,6 +14,10 @@ function submitForm() {
  *
  * loading will be end after document is loaded
  */
+
+
+
+
 
 const preloader = document.querySelector("[data-preaload]");
 
@@ -1044,3 +1048,61 @@ function changeTheLanguage(language) {
     Placeholders[i].setAttribute("placeholder", trnasOfPlaceholders);
   }
 }
+
+
+
+function confirmationHover(){
+
+
+  var confirm = document.getElementById('conf');
+  var cancel = document.getElementById('canc');
+  confirm.addEventListener('click', function() {  
+
+    document.getElementById("findATable").submit();
+    return true;
+    });
+
+  cancel.addEventListener('click', function() {  
+
+  document.getElementById("confirm").style.display = "none";
+    return false;
+  
+  });
+
+  return false;
+
+
+}
+
+
+
+
+function HoverForm(){
+
+
+    var name = document.getElementById("rName").value;
+    var pn = document.getElementById("phoneNumber").value;
+    var ei = document.getElementById("email_input").value;
+    var pi = document.getElementById("personInput").value;
+    var die = document.getElementById("dateInput").value;
+    var timeInput = document.getElementById("timeInput").value;
+    var sms = document.getElementById("sms").value;
+    
+    
+    document.getElementById("Hover_name").innerHTML = name;
+    document.getElementById("hover_Number").innerHTML = pn;
+    document.getElementById("hover_Email").innerHTML = ei;
+    document.getElementById("hover_Person").innerHTML = pi;
+    document.getElementById("hover_Date").innerHTML =  die;
+    document.getElementById("hover_Time").innerHTML = timeInput;
+    document.getElementById("hover_Message").innerHTML = sms;   
+    document.getElementById("confirm").style.display = "block";
+    
+    
+    return confirmationHover();
+    
+    
+} 
+
+
+

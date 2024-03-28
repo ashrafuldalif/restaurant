@@ -3856,10 +3856,42 @@ Ihr Limmon's - Team !!!!!
       <section class="reservation" id="reservation">
         <div class="container">
           <div class="form reservation-form bg-black-10">
+            
+            
 
 
+            <div  class="confirm" style="display: none;" id="confirm"> 
+              <img src="favicon.svg" style="height: 100px;" alt="">
+              <h1>CONFIRM YOUR RESERVATION DATA</h1><br>
+              <p>Name :<span id="Hover_name"></span></p>
+              <p>Number : <span id="hover_Number"></span></p>
+              <p>Email : <span id="hover_Email"></span></p>
+              <p>persons : <span id="hover_Person"></span></p>
+              <p>Date : <span id="hover_Date"></span></p>
+              <p>Time: <span id="hover_Time"> </span></p>
+              <p>message: <span id="hover_Message"></span></p>
+              <div class="confirm-btn-wrapper">
+                
+                <button class="btn btn-secondary" id="canc">
+                  <span class="text text-1 lang">Cancle</span>
+                  <span class="text text-2 lang" aria-hidden="true">Cancle</span>
+                </button>
+                <button class="btn btn-secondary confirm_Btn" id="conf">
+                  <span class="text text-1 lang">confirm</span>
+                  <span class="text text-2 lang" aria-hidden="true">confirm</span>
+                </button>
+              </div>
+              <p>After confirming the table you will get a Email from Limmons Bistro </p>
+            </div>
 
-            <form action="reservation.php"  class="form-left" id="findATable" method="post">
+            
+            
+            
+              
+
+
+            <!-- TODO: Fix this thing -->
+          <form  class="form-left" id="findATable" onsubmit="return HoverForm();" action="reservation.php" method="post">
 
               <h2 class="headline-1 text-center lang"> <span id="time">00:00:00</span>Online Reservation</h2>
 
@@ -3871,9 +3903,9 @@ Ihr Limmon's - Team !!!!!
                 
                 <div class="input-wrapper">
                   <input type="text" name="name"  placeholder="Your Name"  autocomplete="off" class="input-field input-lang" id="rName" required/>
-                  <input type="number" id="phoneNumber" name="phone"    placeholder="Phone Number" autocomplete="off" id="Phone-Number" class="input-field input-lang"/>
+                  <input type="number" id="phoneNumber" name="phone"    placeholder="Phone Number" autocomplete="off" class="input-field input-lang"/>
                 </div>
-                <input type="email" name="reservation-email"  class="input-field email" placeholder="E-mail" id="email-input" required>
+                <input type="email" name="reservation-email"  class="input-field email" placeholder="E-mail" id="email_input" required>
 
                 <div class="input-wrapper">
                   <div class="icon-wrapper">
@@ -3946,34 +3978,43 @@ Ihr Limmon's - Team !!!!!
                 </div>
                 <textarea name="message" placeholder="Message"   autocomplete="off" id="sms" class="input-field input-lang"></textarea>
 
-                <button  class="btn btn-secondary"  id="submitBtn"><!-- onclick="submitForm();" -->
+                <button  class="btn btn-secondary"  id="submitBtn">
+                
                   <span class="text text-1 lang">Book A Table</span>
                   <span class="text text-2 lang" aria-hidden="true"> Book A Table </span>
                 </button>
-                <div class="confirm hide"> 
-                  <img src="favicon.svg" style="height: 100px;" alt="">
-                  <h1>CONFIRM YOUR RESERVATION DATA</h1><br>
-                  <p>Name :<span data-for-cofirm>Ashraful Alif</span></p>
-                  <p>Number : <span data-for-cofirm>01601614334</span></p>
-                  <p>Email : <span data-for-cofirm> ashrafulalif26@gmail.com</span></p>
-                  <p>persons : <span data-for-cofirm>1</span></p>
-                  <p>Date : <span data-for-cofirm>2/14/2024</span></p>
-                  <p>Time: <span data-for-cofirm> 22:00 </span></p>
-                  <p>message: <span data-for-cofirm> i always alone  </span></p>
-                  <div class="confirm-btn-wrapper">
-                    
-                    <button class="btn btn-secondary">
-                      <span class="text text-1 lang">Cancle</span>
-                      <span class="text text-2 lang" aria-hidden="true">Cancle</span>
-                    </button>
-                    <button class="btn btn-secondary confirm_Btn" >
-                      <span class="text text-1 lang">confirm</span>
-                      <span class="text text-2 lang" aria-hidden="true">confirm</span>
-                    </button>
-                  </div>
-                  <p>After confirming the table you will get a Email from Limmons Bistro </p>
-                </div>
-              </form>
+                
+              </form >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
               <div
                 class="form-right text-center"
