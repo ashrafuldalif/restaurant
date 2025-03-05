@@ -3,10 +3,13 @@
 
 
 function submitForm() {
-  
   document.getElementById("findATable").submit();
 }
 
+
+function printHello(){
+  console.log("Hello")
+};
 
 
 /**
@@ -447,7 +450,7 @@ window.addEventListener("mousemove", function (event) {
 
 const fullmenu = document.querySelector("[data-fullmenu]");
 const fullmenuBtn = document.querySelectorAll("[data-fullmenu-btn]");
-
+console.log(fullmenuBtn);
 const showHideFullMenu = () => {
   fullmenu.classList.toggle("hide");
   fullmenuBtn[6].classList.toggle("hide");
@@ -503,18 +506,10 @@ fulViewMenuPhoto.addEventListener("click", (e) => {
 
 
 const Reservation = document.querySelector("#reservation");
-const rName = Reservation.querySelector("#rName");
-const rNumber = Reservation.querySelector("#Phone-Number");
-const rEmail = Reservation.querySelector("#email-input");
-const persons = Reservation.querySelector("#personInput");
-const Rdate = Reservation.querySelector("#dateInput");
 const rtime = Reservation.querySelector("#timeInput");
-const sms = Reservation.querySelector("#sms");
 const rsubmitBtn = Reservation.querySelector("#submitBtn");
+const Rdate = Reservation.querySelector("#dateInput");
 const PlaceTime = Reservation.querySelector("#time");
-const confirmPage= Reservation.querySelector(".confirm");
-const allDataToConfirm = Reservation.querySelectorAll("[data-for-cofirm]");
-
 let traditionalClock = false;
 let currentTime;
 let hours;
@@ -522,7 +517,6 @@ let minutes;
 let seconds;
 let formattedTime;
 let amorPm;
-let minTime;
 
 PlaceTime.addEventListener("click", () => {
   traditionalClock = !traditionalClock;
@@ -550,22 +544,11 @@ const setTime = () => {
     if (traditionalClock) {
       convertTime(currentTime.getHours());
     }
-    minTime=currentTime.getHours();
     PlaceTime.innerHTML = formattedTime;
     Rdate.min = new Date().toISOString().split("T")[0];
   }, 1000);
 };
 setTime();
-
-
-
-
-
-
-var upto14=false;
-var sameDay=false;
-
-
 function theDate(){
   const year = new Date().getFullYear();
   const month = (new Date().getMonth() + 1).toString().padStart(2, "0");
@@ -575,123 +558,24 @@ function theDate(){
 function chackingTime(){
 
   if ( theDate()== Rdate.value) {
-    sameDay=true;
     if (new Date().getHours() >= 14) {
       Rdate.innerHTML = "";
-      upto14=true;
-      for (var i = 0; i < rtime.options.length; i++) {
-        rtime.options[i].disabled = true;
-      }
     }
     for (var i = 0; i < rtime.options.length; i++) {
-      if (rtime.options[i].value <= minTime) {
+      if (rtime.options[i].value < minTime) {
         rtime.options[i].disabled = true;
       }
     }
   }
-  else{
-    for (var i = 0; i < rtime.options.length; i++) {
-      rtime.options[i].disabled = false;
-    }
-    upto14 = false;
-    sameDay = false;
-  }
 }
-console.log(rNumber.value);
-// Rdate.addEventListener('change',chackingTime)
 
-Rdate.min = new Date().toISOString().split("T")[0];
-
-// Disable Tuesdays
-const days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-const disabledDates = [];
-for (let i = 0; i < 50; i++) {
-  const date = new Date();
-  date.setDate(date.getDate() + i);
-  if (days[date.getDay()] === "Tuesday") {
-    disabledDates.push(date.toISOString().split("T")[0]);
-  }
-}
-Rdate.addEventListener("change", () => {
-  if (disabledDates.includes(Rdate.value)) {
-    Rdate.value="";
-    Rdate.setCustomValidity("we are off in Tuesdays");
-    Rdate.reportValidity();
-  } else {
-      chackingTime();
-  }
-});
+Rdate.addEventListener('change',chackingTime)
 
 
-const removeRedBorder= (e)=>  setTimeout(() => {
-    e.classList.remove("redBorder");
-    console.log("helo");
-  }, 3000);
 
 rsubmitBtn.addEventListener("click", (e) => {
   e.preventDefault();
-
-  if (sameDay && upto14) {
-    // cholbo na;
-    alert("we cant prepeare a table in this short notice ");
-  }
-  // if (rName.value == "" || rEmail.value == "" || Rdate.value== ""){
-
-  //   if (rName.value == "") {
-  //     rName.classList.add("redBorder");
-  //     removeRedBorder(rName);
-  //   }
-  //   if(rEmail.value== ""){
-  //     rEmail.classList.add("redBorder");
-  //     removeRedBorder(rEmail);
-  //   }
-  //   if(Rdate.value== ""){
-  //     Rdate.classList.add("redBorder");
-  //     removeRedBorder(Rdate);
-  //   }
-  // }
-  else{
-    // cholbo ;
-    // alert("congratulation you will gate a mail from limmons thank you");
-    confirmPage.classList.remove("hide");
-    allDataToConfirm[0].innertext=rName.value;
-    allDataToConfirm[1].innertext=rNumber.value;
-    allDataToConfirm[2].innertext=rEmail.value;
-    allDataToConfirm[3].innertext=persons.value;
-    allDataToConfirm[4].innertext=Rdate.value;
-    allDataToConfirm[5].innertext=rtime.value;
-    allDataToConfirm[6].innertext=sms.value;
-    
-    
-    
-    
-  }
-
-  
-  
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // RESERVATION ends here ______________________________
 

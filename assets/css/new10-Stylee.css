@@ -1981,8 +1981,11 @@ input[type="number"]::-moz-outer-spin-button {
   visibility: visible;
 }
 
-.inline {
+.inline,.__inline {
   display: inline;
+}
+.__inline:hover{
+  color: var(--green-blue);
 }
 
 .quantity {
@@ -2020,59 +2023,33 @@ height: 65px;
 .smallRateUs :hover{
   color: var(--green-blue);
 }
-.confirm{
-  background-image:url("/assets/images/background_of_confirm.jpg");
-  background-size: cover;
-  background-position: center;
-  border-radius: 5%;
-  height: 85vh;
-  width: 85vw;
-  position:fixed;
+
+
+/*-----------------------------------*\
+  #FOOTER 
+\*-----------------------------------*/
+
+.footer-wrap{
   display: flex;
-  align-items: start;
   flex-direction: column;
-  padding: clamp(10px,2vh + 1px , 5vh + 3rem)  clamp(20px,5vw + 1rem, 5vw + 2rem);
-  top: 7.5%;
-  left: 7.5%;
-  background-color: black;
-  z-index: 100;
-}
-.confirm p span {
-  display: inline;
-}
-.confirm >img{
-  align-self: center;
-  height:150px ;
-}
-.confirm-btn-wrapper{
-  width: 100%;
-  flex-direction: column;
+  align-items: flex-start;
+  justify-content: start;
+  align-self: flex-start;
+  padding: 0 clamp(2rem,4rem,6rem);
 
-  display: flex;
-  align-items: center;
-  gap: 31px;
-  justify-content: space-around;
+}
+.footer-wrap p{
+  text-align: start;
 }
 
 
-.confirm-btn-wrapper > .btn{
-width: 100%;
-  display: flex;
-  justify-content: center;
-border-radius: 15px;
-background-color: rgb(255, 58, 58);
-border:2px solid red;
-}
-.confirm-btn-wrapper > .confirm_Btn{
 
-  background-color: rgb(117, 225, 117);
-  border:2px solid rgb(38, 255, 0);
 
-}
 
-.redBorder{
-  border:1px solid  red;
-}
+
+
+
+
 /*-----------------------------------*\
   #MEDIA QUERIES
 \*-----------------------------------*/
@@ -2082,18 +2059,6 @@ border:2px solid red;
  */
 
 @media (max-width: 355px) {
-  .confirm h1{
-  font-size: 15px;
-  margin-top: 10px;
-}
-.confirm-btn-wrapper{
-  gap: 10px;
-  transform: scale(.8);
-}
-.confirm p{
-  font-size: 14px;
-}
-
   .menu-card {
     transform: scale(0.8) translate(-45px);
   }
@@ -2102,14 +2067,6 @@ border:2px solid red;
   :root {
     --img-per-screen: 2;
   }
-.confirm-btn-wrapper{
-  margin-top: clamp(10px,4vh + 1rem, 5vh + 5px);
-  flex-direction: row;
-
-}
-.confirm p{
-  font-size: 16px;
-}
   /* gallery */
 
   .image-slider {
@@ -2472,7 +2429,7 @@ height: 75px;
     column-gap: 20px;
   }
 
-  .reservation .input-wrapper:nth-child(5) {
+  .reservation .input-wrapper:nth-child(4) {
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -2910,7 +2867,9 @@ height: 100px;
     .star-img{
 height: 110px;
 }
+
 }
+
 
 /**
  * responsive for larger than 1400px screen
@@ -3031,6 +2990,7 @@ pre{
 .form-left {
   padding-top: 0;
 }
+
 .high-light {
   color: var(--white);
   font-size: 2.5rem;
